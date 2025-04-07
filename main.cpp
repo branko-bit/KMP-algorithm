@@ -47,6 +47,7 @@ void KMP(const string& text, const string& vzorec) {
 		kmpNext[i] = 0;
 	}
 	int dolzina_primerjalnega_niza = 0;
+	//test
 
     for (int i = 2; i < dolzina_kmp; i++) {
 		dolzina_primerjalnega_niza = i - 1;
