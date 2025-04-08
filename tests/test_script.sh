@@ -50,7 +50,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Sunday najdena mesta:"
+echo "\nSunday najdena mesta:"
 cat out.txt
 
 ensure_newline_at_end out.txt
