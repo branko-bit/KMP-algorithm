@@ -19,6 +19,7 @@ ensure_newline_at_end() {
 # Izvedi teste
 echo "Izvajanje testov..."
 
+echo "Predvidena najdena mesta:"
 cat primer_izhoda.txt
 
 # Test 1: KMP algoritem
@@ -28,6 +29,8 @@ if [ $? -ne 0 ]; then
   cat out.txt
   exit 1
 fi
+echo "KMP najdena mesta:"
+cat out.txt
 
 ensure_newline_at_end out.txt
 ensure_newline_at_end primer_izhoda.txt
@@ -46,6 +49,9 @@ if [ $? -ne 0 ]; then
   echo "Test 2 (Sunday) ni uspel!"
   exit 1
 fi
+
+echo "Sunday najdena mesta:"
+cat out.txt
 
 ensure_newline_at_end out.txt
 ensure_newline_at_end primer_izhoda.txt
