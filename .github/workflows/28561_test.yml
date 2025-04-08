@@ -52,6 +52,9 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install -y g++ make
 
+      - name: Make test script executable
+        run: chmod +x ./tests/test_script.sh
+
       - name: Compile the code
         run: make
 
