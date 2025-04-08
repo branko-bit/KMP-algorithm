@@ -12,6 +12,8 @@ fi
 # Izvedi teste
 echo "Izvajanje testov..."
 
+cat primer_izhoda.txt
+
 # Test 1: KMP algoritem
 ./program 0 "Lorem ipsum" "primer_besedilo.txt"
 if [ $? -ne 0 ]; then
