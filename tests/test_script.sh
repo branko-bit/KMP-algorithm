@@ -22,6 +22,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+ensure_newline_at_end out.txt
+ensure_newline_at_end primer_izhoda.txt
+
 # Primerjaj izhod z pravilnim izhodom
 diff out.txt primer_izhoda.txt
 if [ $? -ne 0 ]; then
@@ -36,6 +39,9 @@ if [ $? -ne 0 ]; then
   echo "Test 2 (Sunday) ni uspel!"
   exit 1
 fi
+
+ensure_newline_at_end out.txt
+ensure_newline_at_end primer_izhoda.txt
 
 # Primerjaj izhod z pravilnim izhodom
 diff out.txt primer_izhoda.txt
