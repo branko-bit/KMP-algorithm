@@ -12,10 +12,12 @@ jobs:
 
       - name: Check if test scripts exist
         run: |
-          if [ ! -f "./tests/test_script.sh" ]; then
-            echo "Test script not found!" > napaka.txt
+            if [ ! -f "./tests/test_script.sh" ]; then
+            echo "Testne skripte niso bile najdene" > napaka.txt
             exit 1
-          fi
+            else
+            > napaka.txt
+            fi
         continue-on-error: true
 
       - name: Upload error file
@@ -40,13 +42,13 @@ jobs:
 
       - name: Check for errors
         run: |
-          if [ -f "napaka.txt" ]; then
-            echo "Error found in previous job:"
-            cat napaka.txt
-            rm napaka.txt
-            exit 1
-          fi
-
+            if [ -s napaka.txt ]; then
+                cat napaka.txt
+                > napaka.txt
+                exit 1
+            else
+                echo "Vse stima"
+            fi
       - name: Install dependencies
         run: sudo apt-get install -y g++ make
 
