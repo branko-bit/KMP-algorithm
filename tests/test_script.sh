@@ -9,6 +9,13 @@ if [ ! -f program ]; then
   exit 1
 fi
 
+ensure_newline_at_end() {
+  local file=$1
+  if [ -n "$(tail -c1 "$file")" ]; then
+    echo >> "$file"
+  fi
+}
+
 # Izvedi teste
 echo "Izvajanje testov..."
 
