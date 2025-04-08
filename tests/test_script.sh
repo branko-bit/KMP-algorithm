@@ -15,7 +15,7 @@ echo "Izvajanje testov..."
 cat primer_izhoda.txt
 
 # Test 1: KMP algoritem
-./program 0 "Lorem ipsum" "primer_besedilo.txt"
+./program 0 "Lorem ipsum" primer_besedilo.txt
 if [ $? -ne 0 ]; then
   echo "Test 1 (KMP) ni uspel!"
   cat out.txt
@@ -31,7 +31,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Test 2: Sunday algoritem
-./program 1 "Lorem ipsum" "primer_besedilo.txt"
+./program 1 "Lorem ipsum" primer_besedilo.txt
 if [ $? -ne 0 ]; then
   echo "Test 2 (Sunday) ni uspel!"
   exit 1
