@@ -20,7 +20,7 @@ jobs:
 
       - name: Upload error file
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: error-file
           path: napaka.txt
@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download error file
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: error-file
           path: .
