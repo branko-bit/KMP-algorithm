@@ -19,7 +19,6 @@ jobs:
         continue-on-error: true
 
       - name: Upload error file
-        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: error-file
@@ -34,7 +33,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download error file
-        if: always()
         uses: actions/download-artifact@v4
         with:
           name: error-file
@@ -45,6 +43,7 @@ jobs:
           if [ -f "napaka.txt" ]; then
             echo "Error found in previous job:"
             cat napaka.txt
+            rm napaka.txt
             exit 1
           fi
 
