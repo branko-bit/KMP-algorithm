@@ -26,12 +26,12 @@ ensure_newline_at_end out.txt
 ensure_newline_at_end primer_izhoda.txt
 
 # Primerjaj izhod z pravilnim izhodom
-diff out.txt primer_izhoda.txt
-if [ $? -ne 0 ]; then
+cmp --silent out.txt primer_izhoda.txt || {
   echo "Test 1 (KMP) ni uspel! Izhod se ne ujema s pravilnim izhodom."
-  cat out.txt
+  echo "Razlike:"
+  diff out.txt primer_izhoda.txt
   exit 1
-fi
+}
 
 # Test 2: Sunday algoritem
 ./program 1 "Lorem ipsum" primer_besedilo.txt
@@ -44,11 +44,12 @@ ensure_newline_at_end out.txt
 ensure_newline_at_end primer_izhoda.txt
 
 # Primerjaj izhod z pravilnim izhodom
-diff out.txt primer_izhoda.txt
-if [ $? -ne 0 ]; then
+cmp --silent out.txt primer_izhoda.txt || {
   echo "Test 2 (Sunday) ni uspel! Izhod se ne ujema s pravilnim izhodom."
+  echo "Razlike:"
+  diff out.txt primer_izhoda.txt
   exit 1
-fi
+}
 
 echo "Vsi testi so uspeli!"
 
