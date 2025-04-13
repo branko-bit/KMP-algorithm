@@ -13,7 +13,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       matrix:
-        architecture: [linux/amd64, linux/arm64] #matrix za pac vec razlicnih arhitektur
+        tag: [latest, stable] #matrix za pac vec razlicnih arhitektur
 
     steps:
       #chekcaout repo
@@ -37,8 +37,7 @@ jobs:
         with:
           context: .
           push: true
-          platforms: ${{ matrix.architecture }} #doloci arhitektur iz matrixa
-          tags: ${{ secrets.DOCKER_USERNAME }}/kmp-algorithm:latest #pusha na my username/kmp-algorithm na latest verzijo
+          tags: ${{ secrets.DOCKER_USERNAME }}/kmp-algorithm:${{ matrix.tag }} #pusha na my username/kmp-algorithm na latest verzijo
 
       - name: Image digest
         run: echo ${{ steps.build-and-push.outputs.digest }}
