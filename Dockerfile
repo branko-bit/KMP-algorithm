@@ -1,21 +1,17 @@
-# Uporabi uradno sliko Ubuntu kot osnovno sliko
+#osnovna slika je ubunut latest verzija
 FROM ubuntu:latest
 
-# Posodobi paketni seznam in namesti potrebne pakete
+#posodobi oz instalira use pakete
 RUN apt-get update && apt-get install -y \
     build-essential \
     g++ \
     make \
     && rm -rf /var/lib/apt/lists/*
 
-# Nastavi delovno mapo v zabojniku
+# setta main mapo v kontejnerju
 WORKDIR /app
 
-# Kopiraj trenutno mapo vsebine v zabojnik na /app
+# kopira trenunto vsebino v to mapo
 COPY . /app
 
-# Zaženi Makefile za kompilacijo programa
 RUN make
-
-# Določi ukaz za zagon programa ob zagonu zabojnika
-CMD ["./program"]
